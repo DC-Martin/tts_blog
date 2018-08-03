@@ -11,21 +11,22 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author %>
+<form>
+  <div class="form-group">
+    <%= form.hidden_field :user_id, value: current_user.id %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :comment_entry %>
     <%= form.text_area :comment_entry %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.hidden_field :post_id, value: @post.id %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+</form>
 <% end %>

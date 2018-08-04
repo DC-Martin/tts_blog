@@ -21,7 +21,7 @@
   <div class="collapse navbar-collapse" id="navbarToggler">
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Blog <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0 mr-auto">
@@ -32,13 +32,12 @@
     <div class="">
         <% if user_signed_in? %>
           <%= current_user.username %>
-          <%# if gravatar_tag current_user.email %>
-            <%# gravatar_tag current_user.email, size: 35 %>
-            <%# else %>
-            <%= image_tag current_user.avatar.url, size: 35 %>
-          <%# end %>
+          <%= image_tag current_user.avatar.url, size: 35, style: "border-radius: 15px" %>
           <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-info" %>
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
+          <% else %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-info" %>
+            <%= link_to "Sign In", new_user_session_path, class: "btn btn-info" %>
         <% end %>
       </div>
   </div>
